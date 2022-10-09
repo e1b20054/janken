@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import oit.is.z0264.kaizi.janken.model.Janken;
+
 @Controller
 public class JankenController {
 
@@ -22,25 +24,22 @@ public class JankenController {
 
   @GetMapping("/hand_rock")
   public String hand_rock(ModelMap model) {
-    model.addAttribute("YourHand", "グー");
-    model.addAttribute("EnemyHand", "グー");
-    model.addAttribute("Result", "Draw");
+    Janken janken = new Janken("グー");
+    model.addAttribute("janken", janken);
     return "janken.html";
   }
 
   @GetMapping("/hand_scissors")
   public String hand_scissors(ModelMap model) {
-    model.addAttribute("YourHand", "チョキ");
-    model.addAttribute("EnemyHand", "グー");
-    model.addAttribute("Result", "You Lose");
+    Janken janken = new Janken("チョキ");
+    model.addAttribute("janken", janken);
     return "janken.html";
   }
 
   @GetMapping("/hand_paper")
   public String hand_paper(ModelMap model) {
-    model.addAttribute("YourHand", "パー");
-    model.addAttribute("EnemyHand", "グー");
-    model.addAttribute("Result", "You Win!");
+    Janken janken = new Janken("パー");
+    model.addAttribute("janken", janken);
     return "janken.html";
   }
 
