@@ -6,6 +6,11 @@ public class Janken {
   String YourHand;
   String EnemyHand;
   String Result;
+  static int matchCnt = 0;
+  static int winCnt = 0;
+  static int loseCnt = 0;
+  static int drawCnt = 0;
+  static int continueCnt = 0;
 
   public Janken(String Hand) {
     this.YourHand = Hand;
@@ -15,30 +20,49 @@ public class Janken {
       this.EnemyHand = "グー";
       if (YourHand.equals("グー")) {
         this.Result = "Draw";
+        drawCnt++;
+        continueCnt = 0;
       } else if (YourHand.equals("チョキ")) {
         this.Result = "You Lose";
+        loseCnt++;
+        continueCnt = 0;
       } else {
         this.Result = "You Win!";
+        winCnt++;
+        continueCnt++;
       }
     } else if (num == 1) {
       this.EnemyHand = "チョキ";
       if (YourHand.equals("グー")) {
         this.Result = "You Win!";
+        winCnt++;
+        continueCnt++;
       } else if (YourHand.equals("チョキ")) {
         this.Result = "Draw";
+        drawCnt++;
+        continueCnt = 0;
       } else {
         this.Result = "You Lose";
+        loseCnt++;
+        continueCnt = 0;
       }
     } else {
       this.EnemyHand = "パー";
       if (YourHand.equals("グー")) {
         this.Result = "You Lose";
+        loseCnt++;
+        continueCnt = 0;
       } else if (YourHand.equals("チョキ")) {
         this.Result = "You Win!";
+        winCnt++;
+        continueCnt++;
       } else {
         this.Result = "Draw";
+        drawCnt++;
+        continueCnt = 0;
       }
     }
+    matchCnt++;
   }
 
   public String getYourHand() {
@@ -63,5 +87,45 @@ public class Janken {
 
   public void setResult(String result) {
     this.Result = result;
+  }
+
+  public int getMatchCnt() {
+    return matchCnt;
+  }
+
+  public void setMatchCnt(int n) {
+    matchCnt = n;
+  }
+
+  public int getWinCnt() {
+    return winCnt;
+  }
+
+  public void setWinCnt(int n) {
+    winCnt = n;
+  }
+
+  public int getLoseCnt() {
+    return loseCnt;
+  }
+
+  public void setLoseCnt(int n) {
+    loseCnt = n;
+  }
+
+  public int getDrawCnt() {
+    return drawCnt;
+  }
+
+  public void setDrawCnt(int n) {
+    drawCnt = n;
+  }
+
+  public int getContinueCnt() {
+    return continueCnt;
+  }
+
+  public void setContinueCnt(int n) {
+    continueCnt = n;
   }
 }
