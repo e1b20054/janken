@@ -32,6 +32,26 @@
     <div>
       結果 [[${janken.getResult()}]]
     </div>
+    <p />
+    <div>
+      総試合回数 [[${janken.getMatchCnt()}]]回
+    </div>
+    <p />
+    <div>
+      <div>
+        勝利数 [[${janken.getWinCnt()}]]回
+      </div>
+      <div>
+        敗北数 [[${janken.getLoseCnt()}]]回
+      </div>
+      <div>
+        引き分け数 [[${janken.getDrawCnt()}]]回
+      </div>
+    </div>
+    <p />
+    <div th:if="${janken.getContinueCnt() ge 2}">
+      [[${janken.getContinueCnt()}]]連勝！！！
+    </div>
   </div>
 
 </body>
