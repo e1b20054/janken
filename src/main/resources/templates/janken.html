@@ -22,16 +22,16 @@
     <a href="/hand_paper">パー</a>
   </div>
 
-  <div th:if="${YourHand}">
-    あなたの手 [[${YourHand}]]
-  </div>
-
-  <div th:if="${EnemyHand}">
-    相手の手 [[${EnemyHand}]]
-  </div>
-
-  <div th:if="${Result}">
-    結果 [[${Result}]]
+  <div th:if="${janken}">
+    <div>
+      あなたの手 [[${janken.getYourHand()}]]
+    </div>
+    <div>
+      相手の手 [[${janken.getEnemyHand()}]]
+    </div>
+    <div>
+      結果 [[${janken.getResult()}]]
+    </div>
   </div>
 
 </body>
