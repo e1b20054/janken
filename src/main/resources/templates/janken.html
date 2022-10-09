@@ -30,7 +30,7 @@
       相手の手 [[${janken.getEnemyHand()}]]
     </div>
     <div>
-      結果 [[${janken.getResult()}]]
+      結果 <b>[[${janken.getResult()}]]</b>
     </div>
     <p />
     <div>
@@ -50,7 +50,7 @@
     </div>
     <p />
     <div th:if="${janken.getContinueCnt() ge 2}">
-      [[${janken.getContinueCnt()}]]連勝！！！
+      <span style="color:red">[[${janken.getContinueCnt()}]]連勝！！！</span>
     </div>
   </div>
 
