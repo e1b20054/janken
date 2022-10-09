@@ -16,6 +16,24 @@
     Hi [[${Name}]]
   </div>
 
+  <div>
+    <a href="/hand_rock">グー</a>
+    <a href="/hand_scissors">チョキ</a>
+    <a href="/hand_paper">パー</a>
+  </div>
+
+  <div th:if="${YourHand}">
+    あなたの手 [[${YourHand}]]
+  </div>
+
+  <div th:if="${EnemyHand}">
+    相手の手 [[${EnemyHand}]]
+  </div>
+
+  <div th:if="${Result}">
+    結果 [[${Result}]]
+  </div>
+
 </body>
 
 </html>
