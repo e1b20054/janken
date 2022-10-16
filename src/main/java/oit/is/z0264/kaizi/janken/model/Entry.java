@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Entry {
   ArrayList<String> users = new ArrayList<>();
+  int userCnt = 0;
 
   public void addUser(String name) {
     for (String s : this.users) {
@@ -15,6 +16,15 @@ public class Entry {
       }
     }
     this.users.add(name);
+    userCnt++;
+  }
+
+  public int getUserCnt() {
+    return userCnt;
+  }
+
+  public void setUserCnt(int cnt) {
+    this.userCnt = cnt;
   }
 
   public ArrayList<String> getUsers() {

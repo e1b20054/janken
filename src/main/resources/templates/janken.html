@@ -17,6 +17,9 @@
     <ul>
       <li th:each="user : ${entry.users}">[[${user}]]</li>
     </ul>
+    <div>
+      現在 [[${entry.getUserCnt()}]] 人がエントリーしています
+    </div>
   </div>
 
   <p />
