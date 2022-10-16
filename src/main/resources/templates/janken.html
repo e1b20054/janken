@@ -8,12 +8,21 @@
 </head>
 
 <body>
+  <div><a href="/logout">ログアウト</a></div>
+
   <h1>Janken GAME!</h1>
+
+  <div th:if="${entry}">
+    エントリー
+    <ul>
+      <li th:each="user : ${entry.users}">[[${user}]]</li>
+    </ul>
+  </div>
 
   <p />
 
-  <div th:if="${Name}">
-    Hi [[${Name}]]
+  <div th:if="${user}">
+    Hi [[${user}]]
   </div>
 
   <div>
@@ -23,6 +32,10 @@
   </div>
 
   <div th:if="${janken}">
+    <p />
+    <div>
+      ＜今回のあなたの結果＞
+    </div>
     <div>
       あなたの手 [[${janken.getYourHand()}]]
     </div>
@@ -33,6 +46,9 @@
       結果 <b>[[${janken.getResult()}]]</b>
     </div>
     <p />
+    <div>
+      ＜エントリー者全員の合計結果＞
+    </div>
     <div>
       総試合回数 [[${janken.getMatchCnt()}]]回
     </div>
