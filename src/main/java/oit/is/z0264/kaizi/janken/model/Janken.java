@@ -17,12 +17,12 @@ public class Janken {
     Random rand = new Random();
     int num = rand.nextInt(3);
     if (num == 0) {
-      this.EnemyHand = "グー";
-      if (YourHand.equals("グー")) {
+      this.EnemyHand = "Gu";
+      if (YourHand.equals("Gu")) {
         this.Result = "Draw";
         drawCnt++;
         continueCnt = 0;
-      } else if (YourHand.equals("チョキ")) {
+      } else if (YourHand.equals("Choki")) {
         this.Result = "You Lose";
         loseCnt++;
         continueCnt = 0;
@@ -32,12 +32,12 @@ public class Janken {
         continueCnt++;
       }
     } else if (num == 1) {
-      this.EnemyHand = "チョキ";
-      if (YourHand.equals("グー")) {
+      this.EnemyHand = "Choki";
+      if (YourHand.equals("Gu")) {
         this.Result = "You Win!";
         winCnt++;
         continueCnt++;
-      } else if (YourHand.equals("チョキ")) {
+      } else if (YourHand.equals("Choki")) {
         this.Result = "Draw";
         drawCnt++;
         continueCnt = 0;
@@ -47,12 +47,12 @@ public class Janken {
         continueCnt = 0;
       }
     } else {
-      this.EnemyHand = "パー";
-      if (YourHand.equals("グー")) {
+      this.EnemyHand = "Pa";
+      if (YourHand.equals("Gu")) {
         this.Result = "You Lose";
         loseCnt++;
         continueCnt = 0;
-      } else if (YourHand.equals("チョキ")) {
+      } else if (YourHand.equals("Choki")) {
         this.Result = "You Win!";
         winCnt++;
         continueCnt++;

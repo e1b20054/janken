@@ -62,31 +62,31 @@ public class JankenController {
    * return "janken.html";
    * }
    */
-
-  @GetMapping("/hand_rock")
-  public String hand_rock(ModelMap model) {
-    Janken janken = new Janken("グー");
-    // model.addAttribute("entry", this.entry);
-    model.addAttribute("janken", janken);
-    return "janken.html";
-  }
-
-  @GetMapping("/hand_scissors")
-  public String hand_scissors(ModelMap model) {
-    Janken janken = new Janken("チョキ");
-    // model.addAttribute("entry", this.entry);
-    model.addAttribute("janken", janken);
-    return "janken.html";
-  }
-
-  @GetMapping("/hand_paper")
-  public String hand_paper(ModelMap model) {
-    Janken janken = new Janken("パー");
-    // model.addAttribute("entry", this.entry);
-    model.addAttribute("janken", janken);
-    return "janken.html";
-  }
-
+  /*
+   * @GetMapping("/hand_rock")
+   * public String hand_rock(ModelMap model) {
+   * Janken janken = new Janken("グー");
+   * // model.addAttribute("entry", this.entry);
+   * model.addAttribute("janken", janken);
+   * return "match.html";
+   * }
+   * 
+   * @GetMapping("/hand_scissors")
+   * public String hand_scissors(ModelMap model) {
+   * Janken janken = new Janken("チョキ");
+   * // model.addAttribute("entry", this.entry);
+   * model.addAttribute("janken", janken);
+   * return "match.html";
+   * }
+   * 
+   * @GetMapping("/hand_paper")
+   * public String hand_paper(ModelMap model) {
+   * Janken janken = new Janken("パー");
+   * // model.addAttribute("entry", this.entry);
+   * model.addAttribute("janken", janken);
+   * return "match.html";
+   * }
+   */
   /*
    * @PostMapping("/janken")
    * public String janken(@RequestParam String name, ModelMap model) {
@@ -102,6 +102,19 @@ public class JankenController {
     User user2 = userMapper.selectById(id);
     model.addAttribute("user1", user1);
     model.addAttribute("user2", user2);
+    return "match.html";
+  }
+
+  @GetMapping("/fight")
+  public String fight(@RequestParam int id, @RequestParam String hand, Principal prin, ModelMap model) {
+    String loginUser = prin.getName();
+    User user1 = userMapper.selectByName(loginUser);
+    User user2 = userMapper.selectById(id);
+    Janken janken = new Janken(hand);
+    matchMapper.insertMatch(user1.getId(), user2.getId(), janken.getYourHand(), janken.getEnemyHand());
+    model.addAttribute("user1", user1);
+    model.addAttribute("user2", user2);
+    model.addAttribute("janken", janken);
     return "match.html";
   }
 
