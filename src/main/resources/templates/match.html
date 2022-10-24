@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>jankengame</title>
+</head>
+
+<body>
+  <div><a href="/logout">ログアウト</a></div>
+
+  <h1>Match</h1>
+
+  <div th:if="${user1}">
+    <h2 th:if="${user2}">[[${user1.name}]] V.S. [[${user2.name}]]</h2>
+  </div>
+
+</html>
