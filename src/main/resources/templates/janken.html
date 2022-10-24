@@ -48,51 +48,6 @@
     </div>
   </div>
 
-  <div>
-    <a href="/hand_rock">グー</a>
-    <a href="/hand_scissors">チョキ</a>
-    <a href="/hand_paper">パー</a>
-  </div>
-
-  <div th:if="${janken}">
-    <p />
-    <div>
-      ＜今回のあなたの結果＞
-    </div>
-    <div>
-      あなたの手 [[${janken.getYourHand()}]]
-    </div>
-    <div>
-      相手の手 [[${janken.getEnemyHand()}]]
-    </div>
-    <div>
-      結果 <b>[[${janken.getResult()}]]</b>
-    </div>
-    <p />
-    <div>
-      ＜エントリー者全員の合計結果＞
-    </div>
-    <div>
-      総試合回数 [[${janken.getMatchCnt()}]]回
-    </div>
-    <p />
-    <div>
-      <div>
-        勝利数 [[${janken.getWinCnt()}]]回
-      </div>
-      <div>
-        敗北数 [[${janken.getLoseCnt()}]]回
-      </div>
-      <div>
-        引き分け数 [[${janken.getDrawCnt()}]]回
-      </div>
-    </div>
-    <p />
-    <div th:if="${janken.getContinueCnt() ge 2}">
-      <span style="color:red">[[${janken.getContinueCnt()}]]連勝！！！</span>
-    </div>
-  </div>
-
 </body>
 
 </html>
