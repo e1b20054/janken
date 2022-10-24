@@ -22,10 +22,15 @@
     </div>
   </div>
 
-  <p />
-
   <div th:if="${user}">
     Hi [[${user}]]
+  </div>
+
+  <div th:if="${users}">
+    <h2>エントリー</h2>
+    <ul>
+      <li th:each="user : ${users}">[[${user.name}]]</li>
+    </ul>
   </div>
 
   <div>
