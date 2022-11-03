@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import oit.is.z0264.kaizi.janken.model.Janken;
 //import oit.is.z0264.kaizi.janken.model.Entry;
@@ -43,7 +43,7 @@ public class JankenController {
    */
 
   @GetMapping("/janken")
-  // @Transactional
+  @Transactional
   public String janken(Principal prin, ModelMap model) {
     String loginUser = prin.getName();
     ArrayList<User> users = userMapper.selectAllUser();
@@ -70,7 +70,7 @@ public class JankenController {
    * model.addAttribute("janken", janken);
    * return "match.html";
    * }
-   * 
+   *
    * @GetMapping("/hand_scissors")
    * public String hand_scissors(ModelMap model) {
    * Janken janken = new Janken("チョキ");
@@ -78,7 +78,7 @@ public class JankenController {
    * model.addAttribute("janken", janken);
    * return "match.html";
    * }
-   * 
+   *
    * @GetMapping("/hand_paper")
    * public String hand_paper(ModelMap model) {
    * Janken janken = new Janken("パー");
